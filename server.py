@@ -1,5 +1,6 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
-
+import os
+from os import environ
 
 class Serv(BaseHTTPRequestHandler):
 
@@ -15,6 +16,6 @@ class Serv(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes(file_to_open, 'utf-8'))
 
-
-httpd = HTTPServer(('localhost', 8080), Serv)
+PORT = environ['PORT']
+httpd = HTTPServer(('localhost', PORT), Serv)
 httpd.serve_forever()
