@@ -17,5 +17,5 @@ class Serv(BaseHTTPRequestHandler):
         self.wfile.write(bytes(file_to_open, 'utf-8'))
 
 PORT = environ['PORT']
-httpd = HTTPServer(('localhost', PORT), Serv)
+httpd = HTTPServer(('bubbleswithfriends.herokuapp.com', PORT), Serv)
 httpd.serve_forever()
